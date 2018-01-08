@@ -1,0 +1,1 @@
+include ':app', ':servicedemo', ':messengerclientdemo', ':messengerserverdemo', ':aidlserverdemo', ':aidlclientdemo'

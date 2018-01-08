@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.testmd.MainActivity">
+
+    <item
+        android:id="@+id/add"
+        android:orderInCategory="100"
+        android:title="添加"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/remove"
+        android:orderInCategory="100"
+        android:title="删除"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/showVertical"
+        android:orderInCategory="100"
+        android:title="垂直listview"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/showHorizontal"
+        android:orderInCategory="100"
+        android:title="水平listview"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/showGridHorizontal"
+        android:orderInCategory="100"
+        android:title="水平Gridview"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/showGridVertical"
+        android:orderInCategory="100"
+        android:title="垂直Gridview"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/showStaggle"
+        android:orderInCategory="100"
+        android:title="瀑布流"
+        app:showAsAction="never" />
+
+
+</menu>

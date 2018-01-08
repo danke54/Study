@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://D:\workspace\Demo\componentdemo\messengerserverdemo\01_messengerserverdemo.iml" filepath="D:\workspace\Demo\componentdemo\messengerserverdemo\01_messengerserverdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aidlclientdemo/aidlclientdemo.iml" filepath="$PROJECT_DIR$/aidlclientdemo/aidlclientdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aidlserverdemo/aidlserverdemo.iml" filepath="$PROJECT_DIR$/aidlserverdemo/aidlserverdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/componentdemo.iml" filepath="$PROJECT_DIR$/componentdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/messengerclientdemo/messengerclientdemo.iml" filepath="$PROJECT_DIR$/messengerclientdemo/messengerclientdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/messengerserverdemo/messengerserverdemo.iml" filepath="$PROJECT_DIR$/messengerserverdemo/messengerserverdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servicedemo/servicedemo.iml" filepath="$PROJECT_DIR$/servicedemo/servicedemo.iml" />
+    </modules>
+  </component>
+</project>
