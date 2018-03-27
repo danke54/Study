@@ -1,0 +1,31 @@
+------------>    
+elment   textView
+    typeMirror      DECLARED
+------------>    
+------------>    
+elment   textView
+    typeMirror      DECLARED
+------------>    
+------------>    
+elment   textView
+    typeMirror      DECLARED
+------------>    
+------------>    
+elment   textView
+    typeMirror      DECLARED
+------------>    
+------------>    
+elment   textView
+    typeMirror      DECLARED
+------------>    
+------------>    
+------------>    
+elment   textView
+    typeMirror      DECLARED
+------------>    
+------------>    
+------------>    
+elment   textView
+    typeMirror      DECLARED
+------------>    
+------------>    
