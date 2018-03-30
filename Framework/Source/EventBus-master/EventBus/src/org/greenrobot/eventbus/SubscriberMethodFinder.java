@@ -67,10 +67,10 @@ class SubscriberMethodFinder {
         }
 
         if (ignoreGeneratedIndex) {
-            // 这是Eventbus3.0新特性，通过创建索引优化Subscriber的注册，
+            // 这是直接通过反射获取Subscriber
             subscriberMethods = findUsingReflection(subscriberClass);
         } else {
-            // 这是默认的实现方式
+            // 这是添加了Eventbus3.0新特性，通过注解处理器在编译期间通过创建索引优化Subscriber的注册，
             subscriberMethods = findUsingInfo(subscriberClass);
         }
 
@@ -86,7 +86,7 @@ class SubscriberMethodFinder {
     }
 
     /**
-     * 获取类中的事件方法
+     * 获取Subscriber中的事件方法
      *
      * @param subscriberClass
      * @return
@@ -97,9 +97,10 @@ class SubscriberMethodFinder {
         findState.initForSubscriber(subscriberClass);
 
         while (findState.clazz != null) {
+
+            // 3.0特性，通过编译器生成的索引获取事件方法
             findState.subscriberInfo = getSubscriberInfo(findState);
             if (findState.subscriberInfo != null) {
-                // 3.0特性，通过索引的方式获取事件方法
                 SubscriberMethod[] array = findState.subscriberInfo.getSubscriberMethods();
                 for (SubscriberMethod subscriberMethod : array) {
                     if (findState.checkAdd(subscriberMethod.method, subscriberMethod.eventType)) {
@@ -107,7 +108,7 @@ class SubscriberMethodFinder {
                     }
                 }
             } else {
-                // 一般会进入到这里，通过反射获取事件方法，最后被存储到(findState.subscriberMethods)
+                // 如果没有配置注解，就会通过反射获取事件方法，最后被存储到(findState.subscriberMethods)
                 findUsingReflectionInSingleClass(findState);
             }
 
@@ -119,7 +120,7 @@ class SubscriberMethodFinder {
     }
 
     /**
-     * 返回事件方的集合并清除findstate的状态
+     * 返回Event处理方法并清除findstate的状态
      *
      * @param findState
      * @return
