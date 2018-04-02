@@ -52,7 +52,9 @@ public class EventBusAnnotationProcessor extends AbstractProcessor {
     public static final String OPTION_EVENT_BUS_INDEX = "eventBusIndex";
     public static final String OPTION_VERBOSE = "verbose";
 
-    /** Found subscriber methods for a class (without superclasses). */
+    /**
+     * Found subscriber methods for a class (without superclasses).
+     */
     private final ListMap<TypeElement, ExecutableElement> methodsByClass = new ListMap<>();
     private final Set<TypeElement> classesToSkip = new HashSet<>();
 
@@ -69,6 +71,7 @@ public class EventBusAnnotationProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment env) {
         Messager messager = processingEnv.getMessager();
         try {
+            // 1、获取build.gradle中配置的arguments（这个就是在编译后生成类的全限定类名）
             String index = processingEnv.getOptions().get(OPTION_EVENT_BUS_INDEX);
             if (index == null) {
                 messager.printMessage(Diagnostic.Kind.ERROR, "No option " + OPTION_EVENT_BUS_INDEX +
@@ -99,10 +102,14 @@ public class EventBusAnnotationProcessor extends AbstractProcessor {
                 messager.printMessage(Diagnostic.Kind.ERROR,
                         "Unexpected processing state: annotations still available after writing.");
             }
+
+            // 2、获取每个SubSubscriber中所有的SubscribeMethod
             collectSubscribers(annotations, env, messager);
+            // 3、获取所有的不需要被执行的SubSubscriber
             checkForSubscribersToSkip(messager, indexPackage);
 
             if (!methodsByClass.isEmpty()) {
+                //4、创建类文件，初始化所有索引
                 createInfoIndexFile(index);
             } else {
                 messager.printMessage(Diagnostic.Kind.WARNING, "No @Subscribe annotations found");
@@ -116,6 +123,7 @@ public class EventBusAnnotationProcessor extends AbstractProcessor {
         return true;
     }
 
+
     private void collectSubscribers(Set<? extends TypeElement> annotations, RoundEnvironment env, Messager messager) {
         for (TypeElement annotation : annotations) {
             Set<? extends Element> elements = env.getElementsAnnotatedWith(annotation);
@@ -123,7 +131,9 @@ public class EventBusAnnotationProcessor extends AbstractProcessor {
                 if (element instanceof ExecutableElement) {
                     ExecutableElement method = (ExecutableElement) element;
                     if (checkHasNoErrors(method, messager)) {
+                        // 获取Subscriber类
                         TypeElement classElement = (TypeElement) method.getEnclosingElement();
+                        // 存储每个Subscriber中的SubscriberMethod
                         methodsByClass.putElement(classElement, method);
                     }
                 } else {
@@ -159,7 +169,10 @@ public class EventBusAnnotationProcessor extends AbstractProcessor {
         for (TypeElement skipCandidate : methodsByClass.keySet()) {
             TypeElement subscriberClass = skipCandidate;
             while (subscriberClass != null) {
+
+
                 if (!isVisible(myPackage, subscriberClass)) {
+                    // 添加不需要处理的Subscriber，在后面生成索引类时会用到
                     boolean added = classesToSkip.add(skipCandidate);
                     if (added) {
                         String msg;
