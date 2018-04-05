@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SimpleImageLoader</string>
+
+
+    <array name="imageUrls">
+
+
+
+    </array>
+</resources>
