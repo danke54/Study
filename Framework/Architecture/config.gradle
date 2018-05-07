@@ -1,0 +1,54 @@
+ext {
+
+    android = [
+            compileSdkVersion   : 26,
+            targetSdkVersion    : 26,
+            minSdkVersion       : 17,
+            buildToolsVersion   : "26.0.2",
+
+            versionCode         : 1,
+            versionName         : "1.0.0"
+    ]
+
+    version = [
+            // Android
+            androidSupportSdkVersion: "26.1.0",
+            constraintLayout        : "1.1.0",
+            junit                   : "4.12",
+            runnerSdkVersion        : "1.0.1",
+            espressoSdkVersion      : "3.0.1",
+
+            // Library
+            espressoSdkVersion      : "3.0.1",
+
+    ]
+
+    dependencies = [
+            // support
+            "appcompat-v7"            : "com.android.support:appcompat-v7:${version["androidSupportSdkVersion"]}",
+            "design"                  : "com.android.support:design:${version["androidSupportSdkVersion"]}",
+            "support-v4"              : "com.android.support:support-v4:${version["androidSupportSdkVersion"]}",
+            "cardview-v7"             : "com.android.support:cardview-v7:${version["androidSupportSdkVersion"]}",
+            "annotations"             : "com.android.support:support-annotations:${version["androidSupportSdkVersion"]}",
+            "recyclerview-v7"         : "com.android.support:recyclerview-v7:${version["androidSupportSdkVersion"]}",
+            "constraint"              : "com.android.support.constraint:constraint-layout:${version["constraintLayout"]}",
+
+            // test
+            "junit"                   : "junit:junit:${version["junit"]}",
+            "runner"                  : "com.android.support.test:runner:${version["runnerSdkVersion"]}",
+            "espresso-core"           : "com.android.support.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
+            "androidJUnitRunner"      : "android.support.test.runner.AndroidJUnitRunner",
+
+            // net
+            "okhttp"                  : "com.squareup.okhttp3:okhttp:3.10.0",
+            "retrofit"                : "com.squareup.retrofit2:retrofit:2.4.0",
+
+            // utils
+            "fastjson"                : "com.alibaba:fastjson:1.2.46",
+    ]
+
+
+
+
+
+}
