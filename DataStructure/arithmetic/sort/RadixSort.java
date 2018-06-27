@@ -6,10 +6,13 @@ package sort;
  * @author zhangke
  */
 public class RadixSort extends Sort {
-
+    public RadixSort() {
+        sortName = "基数排序";
+    }
 
     @Override
     public int[] sort(int[] array) {
+
         return radixSort(array);
     }
 

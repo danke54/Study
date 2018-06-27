@@ -7,6 +7,9 @@ package sort;
  */
 public class BubbleSort extends Sort {
 
+    public BubbleSort() {
+        sortName = "冒泡排序";
+    }
 
     @Override
     public int[] sort(int[] array) {

@@ -7,9 +7,17 @@ package sort;
  * 以此类推，第i趟在待排序记录r[i]~r[n]中选出最小的记录，将它与r[i]交换，使有序序列不断增长直到全部排序完毕。
  */
 public class SelectSort extends Sort {
+    public SelectSort() {
+        sortName = "选择排序";
+    }
 
     @Override
     public int[] sort(int[] array) {
+
+        return selectSort(array);
+    }
+
+    private int[] selectSort(int[] array) {
         int length = array.length;
         for (int i = 0; i < length; i++) {
 
@@ -28,7 +36,6 @@ public class SelectSort extends Sort {
         }
         return array;
     }
-
 
 
 }

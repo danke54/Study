@@ -7,10 +7,12 @@ package sort;
  * array[i+d] , array[i+2d] , array[i+3d]...为一组
  */
 public class ShellSort extends Sort {
+    public ShellSort() {
+        sortName = "希尔排序";
+    }
 
     @Override
     public int[] sort(int[] array) {
-
         return shellSort(array);
     }
 

@@ -7,13 +7,62 @@ import java.util.Random;
  */
 
 public abstract class Sort {
+    public static int MAX_LENGTH = 20;
 
-    public static int MAX_LENGTH = 10;
+    public static final int BUBULE_SORT = 0;
+    public static final int SELECT_SORT = 1;
+    public static final int QUICK_SORT = 2;
+    public static final int INSERT_SORT = 3;
+    public static final int MERGE_SORT = 4;
+    public static final int SHELL_SORT = 5;
+    public static final int HEAP_SORT = 6;
+    public static final int RADIX_SORT = 7;
 
-    public void execSort(String sortName) {
+    public String sortName;
+
+    /**
+     * @param type
+     */
+    public static void execSort(int type) {
+        Sort sort = null;
+        switch (type) {
+            case BUBULE_SORT:
+                sort = new BubbleSort();
+                break;
+            case SELECT_SORT:
+                sort = new SelectSort();
+                break;
+            case QUICK_SORT:
+                sort = new QuickSort();
+                break;
+            case INSERT_SORT:
+                sort = new InsertSort(0);
+                break;
+            case MERGE_SORT:
+                sort = new MergeSort();
+                break;
+            case SHELL_SORT:
+                sort = new ShellSort();
+                break;
+            case HEAP_SORT:
+                sort = new HeapSort();
+                break;
+            case RADIX_SORT:
+                sort = new RadixSort();
+                break;
+
+        }
+        sort.execSort();
+    }
+
+
+    /**
+     * 执行算法
+     */
+    public void execSort() {
         int[] array = createArray();
         sort(array);
-        sout(array, sortName);
+        printArray(array);
     }
 
     /**
@@ -32,12 +81,15 @@ public abstract class Sort {
         int[] array = new int[MAX_LENGTH];
         Random random = new Random();
 
-        System.out.println("原序列：");
+
+        System.out.println(sortName);
+        System.out.println("原数组：");
         for (int i = 0; i < MAX_LENGTH; i++) {
             int nextInt = random.nextInt(100);
             array[i] = nextInt;
             System.out.print(nextInt + "\t");
         }
+        System.out.println("");
         return array;
     }
 
@@ -45,13 +97,15 @@ public abstract class Sort {
      * 打印数组
      *
      * @param array
-     * @param sortName
      */
-    public void sout(int[] array, String sortName) {
-        System.out.println("\n");
-        System.out.println(sortName + ":");
+    public void printArray(int[] array) {
+        System.out.println("排序后：");
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + "\t");
         }
+        System.out.println("");
+        System.out.println("---------------------------------------");
+        System.out.println("");
+
     }
 }

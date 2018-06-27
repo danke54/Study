@@ -7,6 +7,8 @@ package sort;
  */
 public class InsertSort extends Sort {
 
+
+
     public int insertType = 0;
 
     /**
@@ -14,6 +16,7 @@ public class InsertSort extends Sort {
      */
     public InsertSort(int insertType) {
         this.insertType = insertType;
+        sortName = "插入排序";
     }
 
     @Override

@@ -9,9 +9,13 @@ package sort;
  * 4、重新执行上过程
  */
 public class HeapSort extends Sort {
+    public HeapSort() {
+        sortName = "堆排序";
+    }
 
     @Override
     public int[] sort(int[] array) {
+
         return heapSort(array);
     }
 

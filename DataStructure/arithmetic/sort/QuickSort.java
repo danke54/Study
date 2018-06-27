@@ -8,9 +8,13 @@ package sort;
  * @author zhangke
  */
 public class QuickSort extends Sort {
+    public QuickSort() {
+        sortName = "快速排序";
+    }
 
     @Override
     public int[] sort(int[] array) {
+
         return quickSort(array, 0, array.length - 1);
     }
 

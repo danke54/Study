@@ -8,9 +8,13 @@ package sort;
  * 通过递归的方式，重复上面的过程，完成整个排序
  */
 public class MergeSort extends Sort {
+    public MergeSort() {
+        sortName = "归并排序";
+    }
 
     @Override
     public int[] sort(int[] array) {
+
         return mergeSort(array, 0, array.length - 1);
     }
 
