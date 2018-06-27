@@ -7,7 +7,6 @@ import java.util.Random;
  */
 
 public abstract class Sort {
-    public static int MAX_LENGTH = 20;
 
     public static final int BUBULE_SORT = 0;
     public static final int SELECT_SORT = 1;
@@ -18,7 +17,8 @@ public abstract class Sort {
     public static final int HEAP_SORT = 6;
     public static final int RADIX_SORT = 7;
 
-    public String sortName;
+    private final int MAX_LENGTH = 20;
+    protected String sortName;
 
     /**
      * @param type
@@ -59,7 +59,7 @@ public abstract class Sort {
     /**
      * 执行算法
      */
-    public void execSort() {
+    private void execSort() {
         int[] array = createArray();
         sort(array);
         printArray(array);
@@ -77,10 +77,9 @@ public abstract class Sort {
      *
      * @return
      */
-    public int[] createArray() {
+    private int[] createArray() {
         int[] array = new int[MAX_LENGTH];
         Random random = new Random();
-
 
         System.out.println(sortName);
         System.out.println("原数组：");
