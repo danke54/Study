@@ -1,13 +1,11 @@
 package sort;
 
 /**
- *  插入排序
- *
- * @author zhangke
+ *  插入排序：将元素插入到一个有序数组的指定位置，形成一个新的有序数组
+ * <p>
+ * 时间复杂度：平均情况：O(n^2)
  */
 public class InsertSort extends Sort {
-
-
 
     public int insertType = 0;
 
@@ -30,10 +28,10 @@ public class InsertSort extends Sort {
     /**
      * 直接插入排序
      * <p>
-     * 直接插入排序由两次循环决定： </br>
-     * 1、外层循环标识要比较的数值（一般从第二个数据开始） </br>
-     * 2、内层循环为待比较数值确定其最终位置 </br>
-     * 3、当需要确定第i个数据（temp）的插入数据时，每次需要和前i-1个数据进行一次比较，如果temp比array[i]小，那么array[i]需要后移一位，否则就将temp插入到array[i]后面
+     * 算法步骤：
+     * 1、第一步，将第一个元素作为有序数组元素，然后将第二个元素插入到该有序数组中，形成一个新的有序数组
+     * 2、第二部，将第三个元素插入到前两个元素形成的有序素组总，形成新的有序数组
+     * 3、。。。。
      */
     public int[] insertSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
@@ -57,6 +55,7 @@ public class InsertSort extends Sort {
 
         return array;
     }
+
 
     /**
      * 二分插入排序
